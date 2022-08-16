@@ -4,6 +4,11 @@ import { MenuHeader } from './MenuHeader'
 
 export function Header() {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
+
+  function handleSetIsOpenMenu() {
+    setIsOpenMenu((state) => !state)
+  }
+
   return (
     <header className="flex items-center justify-between max-w-[1120px] w-full mx-auto py-8 px-6 sm:px-4 xl:px-0">
       <img 
@@ -40,7 +45,7 @@ export function Header() {
             </button>
           </div>
           <div className="flex w-full items-start px-6 h-full">
-            <MenuHeader />
+            <MenuHeader onSetIsOpenMenu={handleSetIsOpenMenu} />
           </div>
         </div> 
         : ''

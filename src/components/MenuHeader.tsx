@@ -23,7 +23,11 @@ const MyLink = forwardRef(({ href, children, ...rest }: MyLinkProps, ref: Legacy
   )
 })
 
-export function MenuHeader() {
+interface MenuHeaderProps {
+  onSetIsOpenMenu?: () => void;
+}
+
+export function MenuHeader({ onSetIsOpenMenu }: MenuHeaderProps) {
   return (
     <nav className="flex flex-col md:flex-row md:items-start gap-8 md:gap-6 font-bold text-xl text-gray-50">
       <Link href="/">
@@ -53,6 +57,7 @@ export function MenuHeader() {
                 {({ active }) => (
                   <MyLink 
                     href="/category/restaurants"
+                    onClick={onSetIsOpenMenu}
                     className={classNames(
                             active ? 'bg-gray-100 text-blue-800' : 'text-gray-50 md:text-gray-500',
                             'block px-4 py-2 md:text-sm'
@@ -66,6 +71,7 @@ export function MenuHeader() {
                 {({ active }) => (
                   <MyLink 
                     href="/category/bars"
+                    onClick={onSetIsOpenMenu}
                     className={classNames(
                             active ? 'bg-gray-100 text-blue-800' : 'text-gray-50 md:text-gray-500',
                             'block px-4 py-2 md:text-sm'
@@ -79,6 +85,7 @@ export function MenuHeader() {
                 {({ active }) => (
                   <MyLink 
                     href="/category/coffee-shops"
+                    onClick={onSetIsOpenMenu}
                     className={classNames(
                             active ? 'bg-gray-100 text-blue-800' : 'text-gray-50 md:text-gray-500',
                             'block px-4 py-2 md:text-sm'
@@ -92,6 +99,7 @@ export function MenuHeader() {
                 {({ active }) => (
                   <MyLink 
                     href="/category/candy-stores"
+                    onClick={onSetIsOpenMenu}
                     className={classNames(
                             active ? 'bg-gray-100 text-blue-800' : 'text-gray-50 md:text-gray-500',
                             'block px-4 py-2 md:text-sm'
@@ -105,6 +113,7 @@ export function MenuHeader() {
                 {({ active }) => (
                   <MyLink 
                     href="/category/entertainment"
+                    onClick={onSetIsOpenMenu}
                     className={classNames(
                             active ? 'bg-gray-100 text-blue-800' : 'text-gray-50 md:text-gray-500',
                             'block px-4 py-2 md:text-sm'
