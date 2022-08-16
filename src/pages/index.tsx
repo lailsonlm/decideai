@@ -43,8 +43,6 @@ interface HomeProps {
   }[]
 }
 
-
-
 export default function Home({ mainCategories }: HomeProps) {
   const [selectedCategory, setSelectedCategory] = useState("restaurants")
 

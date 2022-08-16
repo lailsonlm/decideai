@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { Card } from "../../components/Card";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
+import { TitleCategory } from "../../components/TitleCategory";
 
 
 const GET_COMPANIES_BY_CATEGORY_AND_LOCALITY_QUERY = gql`
@@ -126,77 +127,7 @@ export default function Category() {
       <div className="flex flex-col w-full h-[175px] sm:h-[320px] bg-blue-800 relative">
         <Header />
         <div className="flex items-center gap-1 md:gap-4 max-w-[1120px] w-full mx-auto h-full px-6 sm:px-4 xl:px-0 text-yellow-400">
-          {data.categories[0].slug === "restaurants" ?
-          <>
-            <ForkKnife 
-              size={64} 
-              weight="fill"
-              className="hidden md:flex"
-            />
-            <ForkKnife 
-              size={24} 
-              weight="fill"
-              className="flex md:hidden"
-            />
-            <span className="font-heading text-2xl md:text-5xl text-white">Restaurantes</span>
-          </>
-          : data.categories[0].slug === "bars" ? 
-          <>
-            <Martini 
-              size={64} 
-              weight="fill"
-              className="hidden md:flex"
-            />
-            <Martini 
-              size={24} 
-              weight="fill"
-              className="flex md:hidden"
-            />
-            <span className="font-heading text-2xl md:text-5xl text-white">Bares</span>
-          </>
-          :  data.categories[0].slug === "coffee-shops" ? 
-          <>
-            <Coffee 
-              size={64} 
-              weight="fill"
-              className="hidden md:flex"
-            />
-            <Coffee 
-              size={24} 
-              weight="fill"
-              className="flex md:hidden"
-            />
-            <span className="font-heading text-2xl md:text-5xl text-white">Cafeterias</span>
-          </>
-          :  data.categories[0].slug === "candy-stores" ? 
-          <>
-            <Cookie 
-              size={64} 
-              weight="fill"
-              className="hidden md:flex"
-            />
-            <Cookie 
-              size={24} 
-              weight="fill"
-              className="flex md:hidden"
-            />
-            <span className="font-heading text-2xl md:text-5xl text-white">Docerias</span>
-          </>
-          : 
-          <>
-            <Confetti 
-              size={64} 
-              weight="fill"
-              className="hidden md:flex"
-            />
-            <Confetti 
-              size={24} 
-              weight="fill"
-              className="flex md:hidden"
-            />
-            <span className="font-heading text-2xl md:text-5xl text-white">Entretenimento</span>
-          </>
-          }
+          <TitleCategory slug={data.categories[0].slug} />
         </div>
       </div>
 

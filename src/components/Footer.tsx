@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link';
 import { ArrowUp } from 'phosphor-react'
 
 export function Footer() {
@@ -15,16 +16,30 @@ export function Footer() {
         <nav className="flex gap-8 md:gap-16">
           <div className="flex flex-col gap-4">
             <p className="font-bold text-md md:text-xl">Categorias</p>
-            <a href="" className='text-gray-300 hover:text-yellow-400 transition-colors text-sm md:text-md'>Restaurantes</a>
-            <a href="" className='text-gray-300 hover:text-yellow-400 transition-colors text-sm md:text-md'>Bares</a>
-            <a href="" className='text-gray-300 hover:text-yellow-400 transition-colors text-sm md:text-md'>Cafeterias</a>
-            <a href="" className='text-gray-300 hover:text-yellow-400 transition-colors text-sm md:text-md'>Docerias</a>
-            <a href="" className='text-gray-300 hover:text-yellow-400 transition-colors text-sm md:text-md'>Entretenimento</a>
+            <Link href="/category/restaurants" passHref>
+              <a className='text-gray-300 hover:text-yellow-400 transition-colors text-sm md:text-md'>Restaurantes</a>
+            </Link>
+            <Link href="/category/bars" passHref>
+              <a className='text-gray-300 hover:text-yellow-400 transition-colors text-sm md:text-md'>Bares</a>
+            </Link>
+            <Link href="/category/coffee-shops" passHref>
+              <a className='text-gray-300 hover:text-yellow-400 transition-colors text-sm md:text-md'>Cafeterias</a>
+            </Link>
+            <Link href="/category/candy-stores" passHref>
+              <a className='text-gray-300 hover:text-yellow-400 transition-colors text-sm md:text-md'>Docerias</a>
+            </Link>
+            <Link href="/category/entertainment" passHref>
+              <a className='text-gray-300 hover:text-yellow-400 transition-colors text-sm md:text-md'>Entretenimento</a>
+            </Link>
           </div>
           <div className="flex flex-col gap-4">
             <p className="font-bold text-md md:text-xl">Sobre</p>
-            <a href="" className='text-gray-300 hover:text-yellow-400 transition-colors text-sm md:text-md'>Política de privacidade</a>
-            <a href="" className='text-gray-300 hover:text-yellow-400 transition-colors text-sm md:text-md'>Termos de uso</a>
+            <Link href="/" passHref>
+              <a className='text-gray-300 hover:text-yellow-400 transition-colors text-sm md:text-md'>Política de privacidade</a>
+            </Link>
+            <Link href="/" passHref>
+              <a className='text-gray-300 hover:text-yellow-400 transition-colors text-sm md:text-md'>Termos de uso</a>
+            </Link>
           </div>
         </nav>
 
@@ -36,6 +51,11 @@ export function Footer() {
             height={22}
           />
           <p className="text-xs md:text-sm text-gray-300">© 2022 Todos os direitos reservados.</p>
+          <p className="text-xs text-gray-50">Desenvolvido por
+            <Link href="https://portfolio-lailsonlm.vercel.app/" passHref>
+            <a target="_blank" className="text-xs text-gray-50 hover:text-yellow-400 transition-colors ml-1 font-semibold">Lailson Sobral</a>
+            </Link>
+          </p>
         </div>
       </div>
       <button 
