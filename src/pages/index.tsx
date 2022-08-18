@@ -26,7 +26,6 @@ const GET_MAIN_COMPANIES_BY_CATEGORY = gql`
     }
   }
 `;
-
 interface HomeProps {
   mainCategories: {
     companies: {
@@ -62,7 +61,7 @@ export default function Home({ mainCategories }: HomeProps) {
           <img src="./bg_img.png" alt="Mulher surpresa segurando o celular" className='w-[312px] md:w-[480px] lg:w-full' />
         </div>
 
-        <div className="absolute left-0 right-0 mx-auto w-full -bottom-[28px] sm:-bottom-[32px] flex items-center justify-center">
+        {/* <div className="absolute left-0 right-0 mx-auto w-full -bottom-[28px] sm:-bottom-[32px] flex items-center justify-center">
           <div className="bg-gray-100 w-full max-w-[960px] h-14 sm:h-[64px] rounded-lg mx-6 sm:mx-4 xl:mx-0">
             <label htmlFor="search" className="sr-only">
               Pesquisar
@@ -83,7 +82,7 @@ export default function Home({ mainCategories }: HomeProps) {
               />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <main className="flex flex-col justify-start max-w-[1120px] w-full mx-auto h-full mt-20 sm:mt-[144px] overflow-hidden">
