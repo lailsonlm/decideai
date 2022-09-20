@@ -7,7 +7,7 @@ export function Faq() {
     <div className="flex flex-col items-center justify-center mx-auto w-full max-w-[928px] p-4 md:p-8 bg-gray-100 rounded-2xl">
       <div className="flex flex-col items-center gap-2 mb-8">
         <h2 className="font-heading text-2xl md:text-4xl">Dúvidas frequentes</h2>
-        <p className="text-gray-500 text-sm md:text-md text-center">Se você ainda tiver outras dúvidas, sinta-se a vontade para conversar conosco, envie-nos um e-mail para <a href="" className="font-semibold">suporte@decideai.com.br</a> </p>
+        <p className="text-gray-500 text-sm md:text-md text-center">Se você ainda tiver outras dúvidas, sinta-se a vontade para conversar conosco, envie-nos um e-mail para <a href="mailto:suporte@decideai.com.br?subject=Outras dúvidas" className="font-semibold">suporte@decideai.com.br</a> </p>
       </div>
       <Disclosure as="div" className="border-y border-gray-300 w-full">
         {({ open }) => (
@@ -19,7 +19,7 @@ export function Faq() {
               }
             </Disclosure.Button>
             <Disclosure.Panel className="px-3 pb-3 text-sm text-gray-500 text-justify">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo doloremque inventore consequatur cupiditate maiores aut. Magni mollitia porro rem veniam nam nesciunt exercitationem a officiis ipsam, accusamus veritatis? Laborum, corporis?
+              Para anunciar seu estabelecimento na nossa plataforma basta entrar em contato com nosso time através do <a href="mailto:suporte@decideai.com.br?subject=Quero anunciar meu estabelecimento" className="font-semibold">suporte@decideai.com.br</a> e nos enviar as seguintes informações: Nome do estabelecimento, uma foto (preferência no formato paisagem) representando o estabelecimento, descrição, Endereço e as principais redes (Whatsapp, Instagram e Facebook). 
             </Disclosure.Panel>
           </>
         )}
@@ -34,7 +34,7 @@ export function Faq() {
               }
             </Disclosure.Button>
             <Disclosure.Panel className="px-3 pb-3 text-sm text-gray-500 text-justify">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo doloremque inventore consequatur cupiditate maiores aut. Magni mollitia porro rem veniam nam nesciunt exercitationem a officiis ipsam, accusamus veritatis? Laborum, corporis? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis culpa repellat, possimus voluptates officia cupiditate asperiores, fugit iusto ullam saepe distinctio ipsam quam unde quae ea itaque consequuntur, nam tempore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate nam eos porro ipsam debitis, neque illum dicta dolores facilis earum fugiat quia facere ut placeat. Magnam dolore reprehenderit numquam voluptatibus? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, repellat voluptas? Ratione a ipsam, nihil omnis ab quae aspernatur voluptatibus ipsa tempore laborum facilis tempora sint distinctio eos, culpa itaque?
+              Oferecemos a oportunidade de destacar seu estabelecimento dos demais através de anúncios em locais específicos e estratégicos na nossa plataforma, sendo assim seu estabelecimento terá maior visibilidade e retorno elevado na procura. Para saber mais, entre em contato com nosso suporte através do <a href="mailto:suporte@decideai.com.br?subject=Quero destacar meu estabelecimento (Publicidade)" className="font-semibold">suporte@decideai.com.br</a>.
             </Disclosure.Panel>
           </>
         )}
@@ -49,7 +49,7 @@ export function Faq() {
               }
             </Disclosure.Button>
             <Disclosure.Panel className="px-3 pb-3 text-sm text-gray-500 text-justify">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo doloremque inventore consequatur cupiditate maiores aut. Magni mollitia porro rem veniam nam nesciunt exercitationem a officiis ipsam, accusamus veritatis? Laborum, corporis?
+              No menu estão disponíveis todas as nossas categorias e na pagina principal listamos as principais delas, caso sinta falta de alguma e deseje sugerir a inclusão em nossa plataforma basta entrar em contato através do <a href="mailto:suporte@decideai.com.br?subject=Nova categoria" className="font-semibold">suporte@decideai.com.br</a> e estaremos te retornando assim que possível.
             </Disclosure.Panel>
           </>
         )}
