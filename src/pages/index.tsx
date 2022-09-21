@@ -8,6 +8,7 @@ import { gql } from '@apollo/client';
 import { client } from "../lib/apollo";
 import { GetServerSideProps } from "next/types";
 import { useState } from "react";
+import { SEO } from "../components/Seo";
 
 const GET_MAIN_COMPANIES_BY_CATEGORY = gql`
   query GET_MAIN_COMPANIES_BY_CATEGORY {
@@ -50,6 +51,11 @@ export default function Home({ mainCategories }: HomeProps) {
   }
 
   return (
+    <>
+    <SEO 
+      title="Decide Aí - O que você procura está aqui" 
+      path="/"
+    />
     <div className="flex flex-col w-full min-h-screen">
       <div className="flex flex-col w-full h-[550px] sm:h-[648px] bg-blue-800 relative">
         <Header />
@@ -189,6 +195,7 @@ export default function Home({ mainCategories }: HomeProps) {
       </main>
       <Footer />
     </div>
+    </>
   )
 }
 

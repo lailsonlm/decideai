@@ -1,10 +1,11 @@
 import { gql, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { CaretDown, Coffee, Confetti, Cookie, ForkKnife, Martini, Spinner } from "phosphor-react";
+import { CaretDown, Spinner } from "phosphor-react";
 import { useEffect, useRef, useState } from "react";
 import { Card } from "../../components/Card";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
+import { SEO } from "../../components/Seo";
 import { TitleCategory } from "../../components/TitleCategory";
 
 
@@ -72,7 +73,9 @@ export default function Category() {
 
   const router = useRouter()
   const slug = router.query.category
+  const path = router.asPath
 
+  const slugSEO = slug === "restaurants" ? "Restaurantes" : slug === "bars" ? "Bares" : slug === "coffee-shops" ? "Cafeterias" : slug === "candy-stores" ? "Docerias" : "Entretenimento"
  
   const { data, loading, fetchMore, error } = useQuery<GetCompanies>(GET_COMPANIES_BY_CATEGORY_AND_LOCALITY_QUERY, {
     variables: {
@@ -123,6 +126,11 @@ export default function Category() {
   }
 
   return (
+    <>
+    <SEO 
+      title={`Decide Aí - ${slugSEO}`}
+      path={path}
+    />
     <div className="flex flex-col w-full min-h-screen">
       <div className="flex flex-col w-full h-[175px] sm:h-[320px] bg-blue-800 relative">
         <Header />
@@ -173,6 +181,7 @@ export default function Category() {
       </main>
       <Footer />
     </div>
+    </>
   )
 }
 

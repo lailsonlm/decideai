@@ -1,9 +1,11 @@
 import { gql } from "@apollo/client";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { FacebookLogo, InstagramLogo, WhatsappLogo } from "phosphor-react";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
+import { SEO } from "../../components/Seo";
 import { TitleCategory } from "../../components/TitleCategory";
 import { client } from "../../lib/apollo";
 
@@ -55,7 +57,15 @@ interface CompanyProps {
 }
 
 export default function Company({ company }: CompanyProps) {
+  const router = useRouter()
+  const path = router.asPath
+
   return (
+    <>
+    <SEO 
+      title={`Decide Aí - ${company.name}`}
+      path={path}
+    />
     <div className="flex flex-col w-full min-h-screen">
       <div className="flex flex-col w-full h-[175px] sm:h-[320px] bg-blue-800 relative">
         <Header />
@@ -105,6 +115,7 @@ export default function Company({ company }: CompanyProps) {
       </main>
       <Footer />
     </div>
+    </>
   )
 }
 

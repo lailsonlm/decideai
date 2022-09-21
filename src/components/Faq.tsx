@@ -19,7 +19,7 @@ export function Faq() {
               }
             </Disclosure.Button>
             <Disclosure.Panel className="px-3 pb-3 text-sm text-gray-500 text-justify">
-              Para anunciar seu estabelecimento na nossa plataforma basta entrar em contato com nosso time através do <a href="mailto:suporte@decideai.com.br?subject=Quero anunciar meu estabelecimento" className="font-semibold">suporte@decideai.com.br</a> e nos enviar as seguintes informações: Nome do estabelecimento, uma foto (preferência no formato paisagem) representando o estabelecimento, descrição, Endereço e as principais redes (Whatsapp, Instagram e Facebook). 
+              Para anunciar seu estabelecimento na nossa plataforma basta entrar em contato com nosso time através do <a href="mailto:suporte@decideai.com.br?subject=Quero anunciar meu estabelecimento" className="font-semibold">suporte@decideai.com.br</a> e nos enviar as seguintes informações: Nome do estabelecimento, uma foto (preferência no formato paisagem) representando o estabelecimento, descrição, endereço e as principais redes (Whatsapp, Instagram e Facebook). 
             </Disclosure.Panel>
           </>
         )}
