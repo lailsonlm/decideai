@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Coffee, Confetti, Cookie, ForkKnife, ListChecks, MagnifyingGlass, MapTrifold, Martini, Storefront } from "phosphor-react";
+import { Coffee, Confetti, Cookie, ForkKnife, ListChecks, MapTrifold, Martini, Storefront } from "phosphor-react";
 import { Header } from "../components/Header";
 import { Card } from "../components/Card";
 import { Faq } from "../components/Faq";
@@ -16,7 +16,7 @@ const GET_MAIN_COMPANIES_BY_CATEGORY = gql`
       id
       title
       slug
-      companies(first: 8) {
+      companies(first: 8, orderBy: updatedAt_DESC) {
         id
         slug
         name

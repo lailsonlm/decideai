@@ -15,7 +15,7 @@ const GET_COMPANIES_BY_CATEGORY_AND_LOCALITY_QUERY = gql`
       slug
     }
     companiesConnection(
-      orderBy: name_ASC
+      orderBy: updatedAt_DESC
       where: {locality: {city: $city}, categories_every: {slug: $slug}}
       first: 10,
       after: $cursor,
