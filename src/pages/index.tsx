@@ -25,6 +25,11 @@ const GET_MAIN_COMPANIES_BY_CATEGORY = gql`
         }
       }
     }
+    companiesConnection {
+      aggregate {
+        count
+      }
+    }
   }
 `;
 interface HomeProps {
@@ -40,10 +45,15 @@ interface HomeProps {
     id: string;
     slug: string;
     title: string;
-  }[]
+  }[],
+  totalCompanies: {
+    aggregate: {
+      count: number
+    }
+  }
 }
 
-export default function Home({ mainCategories }: HomeProps) {
+export default function Home({ mainCategories, totalCompanies }: HomeProps) {
   const [selectedCategory, setSelectedCategory] = useState("restaurants")
 
   function handleSelectCategory(category: string) {
@@ -170,7 +180,7 @@ export default function Home({ mainCategories }: HomeProps) {
           <div className="flex gap-2 text-yellow-400 items-center">
             <Storefront size={72} weight="fill" />
             <div className="flex flex-col gap-2 text-gray-50">
-              <p className="font-heading text-5xl">200</p>
+              <p className="font-heading text-5xl">{totalCompanies.aggregate.count}</p>
               <p className="text-xl">Estabelecimentos</p>
             </div>
           </div>
@@ -204,7 +214,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   
   return {
     props: {
-      mainCategories: data.categories
+      mainCategories: data.categories,
+      totalCompanies: data.companiesConnection
     },
   }
 }
