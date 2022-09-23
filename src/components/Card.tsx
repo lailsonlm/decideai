@@ -8,7 +8,7 @@ interface CardProps {
 
 export function Card({ name, slug, url }: CardProps) {
   return (
-    <div className="flex flex-col flex-1 h-full rounded-lg overflow-hidden justify-between items-center bg-gray-100">
+    <div className="flex flex-col flex-1 rounded-lg overflow-hidden justify-between items-center bg-gray-100">
       <div className="flex flex-col flex-1 w-full">
         <img src={url ? url : 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'} alt="" className="w-full h-28 lg:h-[148px] object-cover" />
         <h2 className="font-heading text-md md:text-xl mt-2 text-center">{name}</h2>
