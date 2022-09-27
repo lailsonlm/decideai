@@ -18,7 +18,7 @@
 - [x] Criar um filtro por cidade na página de cada categoria.
 - [x] Criar uma página para cada lugar, exibindo as principais informações como: descrição, endereço e redes sociais.
 - [ ] Permitir que o usuário realize uma busca pelo nome do lugar desejado.
-- [ ] Criar FAQ para sanar as principais dúvidas dos usuários e de proprietários de estabelecimentos que queiram ter sua marca anunciada.
+- [x] Criar FAQ para sanar as principais dúvidas dos usuários e de proprietários de estabelecimentos que queiram ter sua marca anunciada.
 
 ## Tecnologias e ferramentas utilizadas
 - Next.JS
