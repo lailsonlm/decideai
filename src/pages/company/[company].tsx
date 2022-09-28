@@ -78,12 +78,12 @@ export default function Company({ company }: CompanyProps) {
       <main className="flex flex-col justify-start max-w-[1120px] w-full mx-auto h-full mt-6 md:mt-32 gap-6 overflow-hidden px-6 sm:px-4 xl:px-0">     
         <h2 className="font-heading text-xl md:text-5xl mt-2">{company.name}</h2>
         <img src={company.cover.url} alt="" className="w-full h-[184px] md:h-[330px] object-cover" />
-        <p className="text-md md:text-xl">{company.description && company.description}</p>
+        <p className="text-sm md:text-base text-justify">{company.description && company.description}</p>
 
         <div>
-          <p className="text-sm md:text-md"><strong>Endereço: </strong><span>{company.adress}, {company.numberAdress ? company.numberAdress : 'S/N'}</span></p>
-          <p className="text-sm md:text-md"><strong>Cidade: </strong><span>{company.locality.city}</span></p>
-          <p className="text-sm md:text-md"><strong>Bairro: </strong><span>{company.district}</span></p>
+          <p className="text-base md:text-lg"><strong>Endereço: </strong><span>{company.adress}, {company.numberAdress ? company.numberAdress : 'S/N'}</span></p>
+          <p className="text-base md:text-lg"><strong>Cidade: </strong><span>{company.locality.city}</span></p>
+          <p className="text-base md:text-lg"><strong>Bairro: </strong><span>{company.district}</span></p>
         </div>
 
         <div className="flex gap-2">

@@ -68,7 +68,7 @@ interface GetCompanies {
 }
 
 export default function Category() {
-  const [citySelected, setCitySelected] = useState("Paulista")
+  const [citySelected, setCitySelected] = useState("Olinda")
   const loadMoreRef = useRef(null);
 
   const router = useRouter()

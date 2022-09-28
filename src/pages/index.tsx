@@ -72,7 +72,7 @@ export default function Home({ mainCategories, totalCompanies }: HomeProps) {
         <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-0 max-w-[1120px] w-full mx-auto h-full px-6 sm:px-4 xl:px-0 mt-12 sm:mt-0">
           <div className="flex flex-col w-full max-w-[312px] sm:max-w-[480px] gap-2 sm:gap-4">
             <h1 className="font-heading text-white text-2xl md:text-4xl lg:text-5xl text-center sm:text-left">O que você procura está aqui, quem decide é você!</h1>
-            <p className="text-gray-100 text-sm md:text-lg lg:text-xl text-center sm:text-left">Selecione a categoria e encontre diversas opções de lugares e estabelecimentos para atender a sua demanda.</p>
+            <p className="text-gray-100 text-sm md:text-lg lg:text-xl text-center sm:text-left">Selecione a categoria e encontre as melhores opções de lugares e estabelecimentos para você conhecer.</p>
           </div>
           <img src="./bg_img.png" alt="Mulher surpresa segurando o celular" className='w-[312px] md:w-[480px] lg:w-full' />
         </div>
@@ -101,7 +101,7 @@ export default function Home({ mainCategories, totalCompanies }: HomeProps) {
         </div> */}
       </div>
 
-      <main className="flex flex-col justify-start max-w-[1120px] w-full mx-auto h-full mt-20 sm:mt-[144px] overflow-hidden">
+      <main className="flex flex-col justify-start max-w-[1120px] w-full mx-auto h-full mt-10 sm:mt-20 overflow-hidden">
         <h2 className="font-heading text-xl px-4 xl:px-0">Principais categorias</h2>
         <div className="flex w-full items-center mt-4 overflow-x-auto px-4 xl:px-0">
           <div className="flex w-full items-center bg-blue-800 text-gray-50 rounded-lg text-sm sm:text-base overflow-x-auto">
