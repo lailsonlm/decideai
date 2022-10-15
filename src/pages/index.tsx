@@ -172,7 +172,7 @@ export default function Home({ mainCategories, totalCompanies }: HomeProps) {
         </div>
         <div className="flex justify-end mt-8 px-4 xl:px-0">
           <Link href={`/category/${selectedCategory}`}>
-            <a className="hover:underline-offset-4 hover:underline hover:font-semibold decoration-2 transition-colors text-sm md:text-md">Ver Mais</a>
+            <a className="hover:underline-offset-4 hover:underline hover:font-semibold decoration-2 transition-colors text-sm md:text-md">Ver Todos</a>
           </Link>
         </div>
 
