@@ -61,6 +61,7 @@ export function Footer() {
       <button 
         className="p-2 bg-yellow-400 flex items-center justify-center absolute right-6 md:right-8 bottom-10 md:bottom-12 text-blue-800 rounded-lg  hover:brightness-110 transition-all"
         onClick={scrollToTop}
+        title="Voltar ao topo"
       >
         <ArrowUp size={24} weight="bold" />
       </button>
