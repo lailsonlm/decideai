@@ -10,13 +10,13 @@ import { TitleCategory } from "../../components/TitleCategory";
 
 
 const GET_COMPANIES_BY_CATEGORY_AND_LOCALITY_QUERY = gql`
-  query GET_COMPANIES_BY_CATEGORY_AND_LOCALITY_QUERY($slug: String!, $city: City!, $cursor: String) {
+  query GET_COMPANIES_BY_CATEGORY_AND_LOCALITY_QUERY($slug: String!, $city: [City] = [Olinda, Paulista, Recife], $cursor: String) {
     categories(where: {slug: $slug}) {
       slug
     }
     companiesConnection(
       orderBy: name_ASC
-      where: {locality: {city: $city}, categories_some: {slug: $slug}}
+      where: {locality: {city_in: $city}, categories_some: {slug: $slug}}
       first: 50,
       after: $cursor,
     ) {
@@ -68,7 +68,7 @@ interface GetCompanies {
 }
 
 export default function Category() {
-  const [citySelected, setCitySelected] = useState("Olinda")
+  const [citySelected, setCitySelected] = useState("All")
   const loadMoreRef = useRef(null);
 
   const router = useRouter()
@@ -76,10 +76,12 @@ export default function Category() {
   const path = router.asPath
 
   const slugSEO = slug === "restaurants" ? "Restaurantes" : slug === "bars" ? "Bares" : slug === "coffee-shops" ? "Cafeterias" : slug === "candy-stores" ? "Docerias" : "Entretenimento"
+
+  const city = citySelected === "All" ? undefined : [citySelected]
  
   const { data, loading, fetchMore, error } = useQuery<GetCompanies>(GET_COMPANIES_BY_CATEGORY_AND_LOCALITY_QUERY, {
     variables: {
-      city: citySelected,
+      city,
       slug,
     },
     // notifyOnNetworkStatusChange: true,
@@ -140,7 +142,8 @@ export default function Category() {
       </div>
 
       <main className="flex flex-col justify-start max-w-[1120px] w-full mx-auto h-full mt-6 overflow-hidden">     
-        <div className="flex w-full py-2 px-4 xl:px-2 justify-end relative">
+        <p className="text-sm text-right pr-4 xl:pr-2">Filtrar por cidade:</p>
+        <div className="flex w-full py-2 px-4 xl:px-2 justify-end relative items-center gap-2">
           <select 
             name="city" 
             id="city"
@@ -148,6 +151,7 @@ export default function Category() {
             onChange={(e) => setCitySelected(e.target.value)}
             className="bg-gray-100 text-blue-800 font-semibold py-2 px-4 rounded-lg appearance-none w-36"
           >
+            <option value="All">Todas</option>
             <option value="Olinda">Olinda</option>
             <option value="Paulista">Paulista</option>
             <option value="Recife">Recife</option>
