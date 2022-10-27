@@ -16,7 +16,7 @@ export function Header() {
         <a>
           <img 
             src="/logo.svg" 
-            alt="Logo da decideai" 
+            alt="Logo da Decide Aí" 
             className='md:w-[245.65px] w-[144px]' 
           />
         </a>
@@ -41,7 +41,7 @@ export function Header() {
             <a>
               <img 
                 src="/logo.svg" 
-                alt="Logo da decideai" 
+                alt="Logo da Decide Aí" 
                 className='md:w-[245.65px] w-[144px]' 
               />
             </a>

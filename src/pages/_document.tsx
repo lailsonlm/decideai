@@ -3,7 +3,7 @@ import { Html, Head, Main, NextScript } from 'next/document'
 export default function Document() {
   return (
     <Html lang="pt">
-      <title>decideai</title>
+      <title>Decide Aí - O que você procura está aqui</title>
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='true' />
@@ -21,7 +21,7 @@ export default function Document() {
 
         <meta name="robots" content="index,follow" />
         <meta name="googlebot" content="index,follow" />
-        <meta name="keywords" content="guia, paulista, olinda, recife, bares, restaurantes, docerias, entretenimento, cafeterias, decida, encontrar, onde comer, onde ir"/>
+        <meta name="keywords" content="guia, paulista, olinda, recife, bares, restaurantes, docerias, entretenimento, cafeterias, decida, encontrar, onde comer, onde ir, decide ai, decide aí"/>
 
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
