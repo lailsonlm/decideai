@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document'
+// import Script from 'next/script'
 
 export default function Document() {
   return (
@@ -28,8 +29,21 @@ export default function Document() {
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
 
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3875179153458483"
-        crossOrigin="anonymous"/>
+        {/* <Script
+          id="Adsense-id"
+          data-ad-client="ca-pub-3875179153458483"
+          async
+          strategy="beforeInteractive"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          crossOrigin="anonymous"
+        /> */}
+
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
+          crossOrigin="anonymous"
+        />
+
       </Head>
       <body>
         <Main />
