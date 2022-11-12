@@ -11,8 +11,8 @@ export function Footer() {
   }
 
   return (
-    <footer className="flex flex-col items-center justify-between bg-blue-800 text-gray-50 w-full h-[385px] md:h-[464px] mt-9 md:mt-16 relative">
-      <div className='flex items-center w-full max-w-[1120px] px-6 xl:px-0 flex-1'>
+    <footer className="flex flex-col items-center justify-between bg-blue-800 text-gray-50 w-full h-full md:h-[464px] mt-9 md:mt-16 relative">
+      <div className='flex items-center w-full max-w-[1120px] py-6 md:py-0 px-6 xl:px-0 flex-1'>
         <div className="flex flex-col md:flex-row justify-between items-start w-full gap-8 md:gap-2">
           <nav className="flex gap-8 md:gap-16">
             <div className="flex flex-col gap-2 md:gap-4">
@@ -45,6 +45,18 @@ export function Footer() {
           </nav>
 
           <div className="flex flex-col items-start md:items-end gap-3">
+            <a 
+              href='https://play.google.com/store/apps/details?id=com.lailsonlm.decideaimobile&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'
+              target="_blank" rel="noreferrer"
+            >
+              <Image 
+                alt='Disponível no Google Play' 
+                src='https://play.google.com/intl/pt-BR/badges/static/images/badges/pt-br_badge_web_generic.png'
+                width={150}  
+                height={58}
+              />
+                
+            </a>
             <Image
               src="/logo.svg"
               alt="Logo da decideai"
