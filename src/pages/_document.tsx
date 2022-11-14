@@ -38,11 +38,8 @@ export default function Document() {
           crossOrigin="anonymous"
         /> */}
 
-        <script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
-          crossOrigin="anonymous"
-        />
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3875179153458483"
+          crossorigin="anonymous"></script>
 
       </Head>
       <body>
