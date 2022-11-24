@@ -1,7 +1,8 @@
 import Link from 'next/link'
-import { AnchorHTMLAttributes, forwardRef, Fragment, LegacyRef } from 'react'
+import { AnchorHTMLAttributes, forwardRef, Fragment, LegacyRef, useContext } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { CaretDown } from 'phosphor-react'
+import { AuthContext } from '../context/AuthContext'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -28,6 +29,7 @@ interface MenuHeaderProps {
 }
 
 export function MenuHeader({ onSetIsOpenMenu }: MenuHeaderProps) {
+  const { user, handleGoogleSignOut } = useContext(AuthContext)
   return (
     <nav className="flex flex-col md:flex-row md:items-start gap-8 md:gap-6 font-bold text-xl text-gray-50">
       <Link href="/">
@@ -127,6 +129,15 @@ export function MenuHeader({ onSetIsOpenMenu }: MenuHeaderProps) {
           </Menu.Items>
         </Transition>
       </Menu>
+
+      {user?.displayName && 
+        <button 
+          onClick={handleGoogleSignOut}
+          className='hover:text-yellow-400 transition-colors items-start flex'
+        >
+          Sair
+        </button>
+      }
     </nav>
   )
 }

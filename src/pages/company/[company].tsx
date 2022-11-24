@@ -3,6 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FacebookLogo, InstagramLogo, WhatsappLogo } from "phosphor-react";
+import { CompanyRating } from "../../components/CompanyRating";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { SEO } from "../../components/Seo";
@@ -112,6 +113,8 @@ export default function Company({ company }: CompanyProps) {
           }
           
         </div>
+        <div className="w-full h-[1px] border-b border-gray-300 my-5 md:my-10" />
+        <CompanyRating companyId={company.id} />
       </main>
       <Footer />
     </div>
