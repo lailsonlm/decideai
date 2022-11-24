@@ -4,7 +4,7 @@ import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
 import ptBR from "date-fns/locale/pt-BR";
 import fromUnixTime from 'date-fns/fromUnixTime'
 import { GoogleLogo } from "phosphor-react";
-import { collection, getDocs, query, where } from "firebase/firestore"; 
+import { collection, getDocs, orderBy, query, where } from "firebase/firestore"; 
 
 import { FormRating } from "./FormRating";
 import { AuthContext } from "../context/AuthContext";
@@ -40,7 +40,7 @@ export function CompanyRating({ companyId }: CompanyRatingProps) {
   }
 
   async function getRatings() {
-    const q = query(collection(db, "ratings"), where("companyId", "==", companyId))
+    const q = query(collection(db, "ratings"), where("companyId", "==", companyId), orderBy("createdAt", "desc"))
     
     const querySnapshot = await getDocs(q);
       const data = querySnapshot.docs.map((doc) => {
@@ -62,7 +62,7 @@ export function CompanyRating({ companyId }: CompanyRatingProps) {
         <h2 className="font-heading text-xl md:text-2xl">Avaliações</h2>
         <div className="md:pl-4 flex flex-col md:items-center mt-4 w-fit">
           <strong className="font-bold text-5xl md:text-8xl">{averageRating ? averageRating.toFixed(1) : 0.0}</strong>
-          <p className="text-sm md:text-lg">{ratings.length} avaliações</p>
+          <p className="text-sm md:text-lg">{ratings.length > 0 && ratings.length} avaliações</p>
         </div>
       </div>
 
