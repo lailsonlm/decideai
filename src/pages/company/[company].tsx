@@ -64,7 +64,7 @@ export default function Company({ company }: CompanyProps) {
   return (
     <>
     <SEO 
-      title={`Decide Aí - ${company.name}`}
+      title={`${company.name} - Decide Aí`}
       path={path}
     />
     <div className="flex flex-col w-full min-h-screen">

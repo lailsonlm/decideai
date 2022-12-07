@@ -130,7 +130,7 @@ export default function Category() {
   return (
     <>
     <SEO 
-      title={`Decide Aí - ${slugSEO}`}
+      title={`${slugSEO} - Decide Aí`}
       path={path}
     />
     <div className="flex flex-col w-full min-h-screen">

@@ -13,8 +13,8 @@ export default function Document() {
         <meta name="theme-color" content="#161925" />
         <meta name="apple-mobile-web-app-status-bar-style" content="#161925" />
 
-        <meta property="og:description" content="Decide Aí - O que você procura está aqui, quem decide é você! Estabelecimentos e lugares separados por categorias para facilitar sua vida e encontrar o que você procura." />
-        <meta name="description" content="Decide Aí - O que você procura está aqui, quem decide é você! Estabelecimentos e lugares separados por categorias para facilitar sua vida e encontrar o que você procura." />
+        <meta property="og:description" content="Decide Aí - O que você procura está aqui, quem decide é você! Somos seu guia para estabelecimentos e lugares separados por categorias para facilitar sua vida e encontrar o que você procura." />
+        <meta name="description" content="Decide Aí - O que você procura está aqui, quem decide é você! Somos seu guia para estabelecimentos e lugares separados por categorias para facilitar sua vida e encontrar o que você procura." />
 
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="pt_BR" />
@@ -22,7 +22,7 @@ export default function Document() {
 
         <meta name="robots" content="index,follow" />
         <meta name="googlebot" content="index,follow" />
-        <meta name="keywords" content="guia, paulista, olinda, recife, bares, restaurantes, docerias, entretenimento, cafeterias, decida, encontrar, onde comer, onde ir, decide ai, decide aí"/>
+        <meta name="keywords" content="guia, paulista, olinda, recife, bares, restaurantes, docerias, entretenimento, cafeterias, culinária, encontrar, onde comer, onde ir, decide ai, decide aí, barzinho"/>
 
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
