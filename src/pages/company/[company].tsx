@@ -136,7 +136,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     props: {
       company: data.company
     },
-    revalidate: 60 * 60 // 1hr
+    revalidate: 60 * 30 // 30min
   }
 }
 
