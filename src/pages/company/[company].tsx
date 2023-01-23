@@ -1,14 +1,17 @@
-import { gql } from "@apollo/client";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { gql } from "@apollo/client";
 import { FacebookLogo, InstagramLogo, WhatsappLogo } from "phosphor-react";
+import { motion } from "framer-motion"
+
+import { client } from "../../lib/apollo";
 import { CompanyRating } from "../../components/CompanyRating";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { SEO } from "../../components/Seo";
 import { TitleCategory } from "../../components/TitleCategory";
-import { client } from "../../lib/apollo";
+import { fadeIn, fadeInDown, fadeInLeft, fadeInUp } from "../../utils/animations";
 
 const GET_COMPANY_QUERY = gql`
   query GET_COMPANY_QUERY($slugCompany: String!) {
@@ -70,24 +73,66 @@ export default function Company({ company }: CompanyProps) {
     <div className="flex flex-col w-full min-h-screen">
       <div className="flex flex-col w-full h-[175px] sm:h-[320px] bg-blue-800 relative">
         <Header />
-        <div className="flex items-center gap-1 md:gap-4 max-w-[1120px] w-full mx-auto h-full px-6 sm:px-4 xl:px-0 text-yellow-400">
+        <motion.div 
+          className="flex items-center gap-1 md:gap-4 max-w-[1120px] w-full mx-auto h-full px-6 sm:px-4 xl:px-0 text-yellow-400"
+          initial="initial"
+          animate="animate"
+          variants={fadeInLeft}
+        >
           <TitleCategory slug={company.categories[0].slug} />
-        </div>
+        </motion.div>
 
       </div>
 
-      <main className="flex flex-col justify-start max-w-[1120px] w-full mx-auto h-full mt-6 md:mt-32 gap-6 overflow-hidden px-6 sm:px-4 xl:px-0">     
-        <h2 className="font-heading text-xl md:text-5xl mt-2">{company.name}</h2>
-        <img src={company.cover.url} alt="" className="w-full h-[184px] md:h-[330px] object-cover" />
-        <p className="text-sm md:text-base text-justify">{company.description && company.description}</p>
+      <motion.main 
+        className="flex flex-col justify-start max-w-[1120px] w-full mx-auto h-full mt-6 md:mt-32 gap-6 overflow-hidden px-6 sm:px-4 xl:px-0"
+        initial='initial'
+        whileInView="animate"
+      >     
+        <motion.h2 
+          className="font-heading text-xl md:text-5xl mt-2"
+          variants={fadeInUp}
+          viewport={{ once: true }}
+        >
+          {company.name}
+        </motion.h2>
+        <motion.img 
+          src={company.cover.url} 
+          alt="" 
+          className="w-full h-[184px] md:h-[330px] object-cover" 
+          variants={fadeInDown} 
+          viewport={{ once: true }} 
+          initial='initial'
+          whileInView="animate"
+        />
+        <motion.p 
+          className="text-sm md:text-base text-justify"
+          variants={fadeIn} 
+          viewport={{ once: true }} 
+          initial='initial'
+          whileInView="animate"
+        >
+          {company.description && company.description}
+        </motion.p>
 
-        <div>
+        <motion.div
+          variants={fadeInLeft} 
+          viewport={{ once: true }} 
+          initial='initial'
+          whileInView="animate"
+        >
           <p className="text-base md:text-lg"><strong>Endereço: </strong><span>{company.adress}, {company.numberAdress ? company.numberAdress : 'S/N'}</span></p>
           <p className="text-base md:text-lg"><strong>Cidade: </strong><span>{company.locality.city}</span></p>
           <p className="text-base md:text-lg"><strong>Bairro: </strong><span>{company.district}</span></p>
-        </div>
+        </motion.div>
 
-        <div className="flex gap-2">
+        <motion.div 
+          className="flex gap-2" 
+          variants={fadeInUp} 
+          viewport={{ once: true }} 
+          initial='initial'
+          whileInView="animate"
+        >
           {company.whatsapp &&
             <Link href={`https://wa.me/55${company.whatsapp}`} passHref >
               <a target="_blank">
@@ -112,10 +157,17 @@ export default function Company({ company }: CompanyProps) {
             </Link>
           }
           
-        </div>
-        <div className="w-full h-[1px] border-b border-gray-300 my-5 md:my-10" />
-        <CompanyRating companyId={company.id} />
-      </main>
+        </motion.div>
+        <motion.div
+          variants={fadeIn} 
+          viewport={{ once: true }} 
+          initial='initial'
+          whileInView="animate"
+        >
+          <div className="w-full h-[1px] border-b border-gray-300 my-5 md:my-10" />
+          <CompanyRating companyId={company.id} />
+        </motion.div>
+      </motion.main>
       <Footer />
     </div>
     </>

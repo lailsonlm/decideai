@@ -1,14 +1,17 @@
 import Link from "next/link";
+import { useState } from "react";
+import { GetServerSideProps } from "next/types";
 import { Coffee, Confetti, Cookie, ForkKnife, ListChecks, MapTrifold, Martini, Storefront } from "phosphor-react";
+import { motion } from "framer-motion";
+import { gql } from '@apollo/client';
+
 import { Header } from "../components/Header";
 import { Card } from "../components/Card";
 import { Faq } from "../components/Faq";
 import { Footer } from "../components/Footer";
-import { gql } from '@apollo/client';
 import { client } from "../lib/apollo";
-import { GetServerSideProps } from "next/types";
-import { useState } from "react";
 import { SEO } from "../components/Seo";
+import { fadeIn, fadeInDown, fadeInLeft, fadeInRight, fadeInUp } from "../utils/animations";
 
 const GET_MAIN_COMPANIES_BY_CATEGORY = gql`
   query GET_MAIN_COMPANIES_BY_CATEGORY {
@@ -63,19 +66,29 @@ export default function Home({ mainCategories, totalCompanies }: HomeProps) {
   return (
     <>
     <SEO 
-      title="Decide Aí - O que você procura está aqui" 
+      title="Decide Aí - O que você procura está aqui | Recife, Olinda e Paulista - PE" 
       path="/"
     />
     <div className="flex flex-col w-full min-h-screen">
       <div className="flex flex-col w-full h-[550px] sm:h-[648px] bg-blue-800 relative">
         <Header />
-        <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-0 max-w-[1120px] w-full mx-auto h-full px-6 sm:px-4 xl:px-0 mt-12 sm:mt-0">
-          <div className="flex flex-col w-full max-w-[312px] sm:max-w-[480px] gap-2 sm:gap-4">
+        <motion.div 
+          className="flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-0 max-w-[1120px] w-full mx-auto h-full px-6 sm:px-4 xl:px-0 mt-12 sm:mt-0"
+          initial='initial'
+          animate='animate'
+        >
+          <motion.div 
+            className="flex flex-col w-full max-w-[312px] sm:max-w-[480px] gap-2 sm:gap-4"
+            variants={fadeInLeft}
+          >
             <h1 className="font-heading text-white text-2xl md:text-4xl lg:text-5xl text-center sm:text-left">O que você procura está aqui, quem decide é você!</h1>
             <p className="text-gray-100 text-sm md:text-lg lg:text-xl text-center sm:text-left">Selecione a categoria e encontre as melhores opções de lugares e estabelecimentos para você conhecer.</p>
-          </div>
-          <img src="./bg_img.png" alt="Mulher surpresa segurando o celular" className='w-[312px] md:w-[480px] lg:w-full' />
-        </div>
+          </motion.div>
+          <motion.img 
+            src="./bg_img.png" alt="Mulher surpresa segurando o celular" className='w-[312px] md:w-[480px] lg:w-full' 
+            variants={fadeIn}
+          />
+        </motion.div>
 
         {/* <div className="absolute left-0 right-0 mx-auto w-full -bottom-[28px] sm:-bottom-[32px] flex items-center justify-center">
           <div className="bg-gray-100 w-full max-w-[960px] h-14 sm:h-[64px] rounded-lg mx-6 sm:mx-4 xl:mx-0">
@@ -102,8 +115,20 @@ export default function Home({ mainCategories, totalCompanies }: HomeProps) {
       </div>
 
       <main className="flex flex-col justify-start max-w-[1120px] w-full mx-auto h-full mt-10 sm:mt-20 overflow-hidden">
-        <h2 className="font-heading text-xl px-4 xl:px-0">Principais categorias</h2>
-        <div className="flex w-full items-center mt-4 overflow-x-auto px-4 xl:px-0">
+        <motion.h2 
+          className="font-heading text-xl px-4 xl:px-0"
+          variants={fadeInUp}
+          initial='initial'
+          animate='animate'
+        >
+          Principais categorias
+        </motion.h2>
+        <motion.div 
+          className="flex w-full items-center mt-4 overflow-x-auto px-4 xl:px-0"
+          initial='initial'
+          animate='animate'
+          variants={fadeInUp}
+        >
           <div className="flex w-full items-center bg-blue-800 text-gray-50 rounded-lg text-sm sm:text-base overflow-x-auto">
             <button 
               className={`flex flex-1 py-2 px-4 sm:py-3 gap-2 items-center justify-center rounded-l-lg ${selectedCategory === 'restaurants' ? 'bg-yellow-400 text-blue-800' : 'hover:text-blue-800 hover:bg-yellow-400 transition-colors' }`}
@@ -156,9 +181,15 @@ export default function Home({ mainCategories, totalCompanies }: HomeProps) {
               <span>Entretenimento</span>
             </button>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 mt-6 px-4 xl:px-0">
+        <motion.div 
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 mt-6 px-4 xl:px-0"
+          initial='initial'
+          whileInView="animate"
+          viewport={{ once: true }}
+          variants={fadeIn}
+        >
           {mainCategories.find(category => category.slug === selectedCategory)?.companies.map(company => {
             return (
               <Card 
@@ -169,39 +200,52 @@ export default function Home({ mainCategories, totalCompanies }: HomeProps) {
               />
             )
           })}
-        </div>
+        </motion.div>
         <div className="flex justify-end mt-8 px-4 xl:px-0">
           <Link href={`/category/${selectedCategory}`}>
             <a className="hover:underline-offset-4 hover:underline hover:font-semibold decoration-2 transition-colors text-sm md:text-md">Ver Todos</a>
           </Link>
         </div>
 
-        <div className="flex flex-col md:flex-row p-6 md:p-16 gap-6 md:gap-0 bg-blue-800 items-start md:items-center justify-between mt-9 md:mt-16">
-          <div className="flex gap-2 text-yellow-400 items-center">
+        <motion.div 
+          className="flex flex-col md:flex-row p-6 md:p-16 gap-6 md:gap-0 bg-blue-800 items-start md:items-center justify-between mt-9 md:mt-16"
+          initial='initial'
+          whileInView="animate"
+          viewport={{ once: true }}
+          variants={fadeInDown}
+        >
+          <motion.div className="flex gap-2 text-yellow-400 items-center" variants={fadeInLeft} 
+          >
             <Storefront size={72} weight="fill" />
             <div className="flex flex-col gap-2 text-gray-50">
               <p className="font-heading text-5xl">{totalCompanies.aggregate.count}</p>
               <p className="text-xl">Estabelecimentos</p>
             </div>
-          </div>
-          <div className="flex gap-2 text-yellow-400 items-center">
+          </motion.div>
+          <motion.div className="flex gap-2 text-yellow-400 items-center" variants={fadeInLeft} >
             <ListChecks size={72} weight="fill" />
             <div className="flex flex-col gap-2 text-gray-50">
               <p className="font-heading text-5xl">{mainCategories.length}</p>
               <p className="text-xl">Categorias</p>
             </div>
-          </div>
-          <div className="flex gap-2 text-yellow-400 items-center">
+          </motion.div>
+          <motion.div className="flex gap-2 text-yellow-400 items-center" variants={fadeInLeft}>
             <MapTrifold size={72} weight="fill" />
             <div className="flex flex-col gap-2 text-gray-50">
               <p className="font-heading text-5xl">3</p>
               <p className="text-xl">Cidades</p>
             </div>
-          </div>
-        </div>
-        <div className="mt-9 md:mt-16 px-4 xl:px-0">
+          </motion.div>
+        </motion.div>
+        <motion.div 
+          className="mt-9 md:mt-16 px-4 xl:px-0"
+          initial='initial'
+          whileInView="animate"
+          viewport={{ once: true }}
+          variants={fadeInRight}
+        >
           <Faq />
-        </div>
+        </motion.div>
       </main>
       <Footer />
     </div>

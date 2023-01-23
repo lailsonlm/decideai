@@ -1,12 +1,15 @@
-import { gql, useQuery } from "@apollo/client";
-import { useRouter } from "next/router";
-import { CaretDown, Spinner } from "phosphor-react";
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/router";
+import { gql, useQuery } from "@apollo/client";
+import { CaretDown, Spinner } from "phosphor-react";
+import { motion } from "framer-motion"
+
 import { Card } from "../../components/Card";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { SEO } from "../../components/Seo";
 import { TitleCategory } from "../../components/TitleCategory";
+import { fadeIn, fadeInLeft, fadeInRight } from "../../utils/animations";
 
 
 const GET_COMPANIES_BY_CATEGORY_AND_LOCALITY_QUERY = gql`
@@ -130,20 +133,37 @@ export default function Category() {
   return (
     <>
     <SEO 
-      title={`${slugSEO} - Decide Aí`}
+      title={`${slugSEO} - Decide Aí | Recife, Olinda e Paulista - PE`}
       path={path}
     />
     <div className="flex flex-col w-full min-h-screen">
       <div className="flex flex-col w-full h-[175px] sm:h-[320px] bg-blue-800 relative">
         <Header />
-        <div className="flex items-center gap-1 md:gap-4 max-w-[1120px] w-full mx-auto h-full px-6 sm:px-4 xl:px-0 text-yellow-400">
+        <motion.div 
+          className="flex items-center gap-1 md:gap-4 max-w-[1120px] w-full mx-auto h-full px-6 sm:px-4 xl:px-0 text-yellow-400"
+          initial="initial"
+          animate="animate"
+          variants={fadeInLeft}
+        >
           <TitleCategory slug={data.categories[0].slug} />
-        </div>
+        </motion.div>
       </div>
 
       <main className="flex flex-col justify-start max-w-[1120px] w-full mx-auto h-full mt-6 overflow-hidden">     
-        <p className="text-sm text-right pr-4 xl:pr-2">Filtrar por cidade:</p>
-        <div className="flex w-full py-2 px-4 xl:px-2 justify-end relative items-center gap-2">
+        <motion.p 
+          className="text-sm text-right pr-4 xl:pr-2"
+          initial="initial"
+          animate="animate"
+          variants={fadeInRight}
+        >
+          Filtrar por cidade:
+        </motion.p>
+        <motion.div 
+          className="flex w-full py-2 px-4 xl:px-2 justify-end relative items-center gap-2"
+          initial="initial"
+          animate="animate"
+          variants={fadeInRight}
+        >
           <select 
             name="city" 
             id="city"
@@ -159,10 +179,16 @@ export default function Category() {
           <span className="pointer-events-none absolute inset-y-0 right-5 xl:right-2 flex items-center pr-2 text-blue-800">
             <CaretDown size={16} weight="fill" />
           </span>
-        </div>
+        </motion.div>
         {companies.length 
         ?
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 mt-8 px-4 xl:px-0">
+          <motion.div 
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 mt-8 px-4 xl:px-0"
+            initial='initial'
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeIn}
+          >
             {companies.map(company => {
               return (
                 <Card 
@@ -173,7 +199,7 @@ export default function Category() {
                 />
               )
             })}
-          </div>
+          </motion.div>
         : <p className="py-40 mx-auto text-center">Categoria sem estabelecimento cadastrado no momento...</p>
         }
         {pageInfo.hasNextPage ?

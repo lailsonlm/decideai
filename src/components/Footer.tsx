@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link';
 import { ArrowUp, InstagramLogo } from 'phosphor-react'
+import { motion } from "framer-motion"
+import { fadeIn, fadeInDown, fadeInUp } from '../utils/animations';
 
 export function Footer() {
   const scrollToTop = () =>{
@@ -11,10 +13,18 @@ export function Footer() {
   }
 
   return (
-    <footer className="flex flex-col items-center justify-between bg-blue-800 text-gray-50 w-full h-full md:h-[464px] mt-9 md:mt-16 relative">
+    <motion.footer 
+      className="flex flex-col items-center justify-between bg-blue-800 text-gray-50 w-full h-full md:h-[464px] mt-9 md:mt-16 relative"
+      initial='initial'
+      whileInView="animate"
+      viewport={{ once: true }} 
+    >
       <div className='flex items-center w-full max-w-[1120px] py-6 md:py-0 px-6 xl:px-0 flex-1'>
         <div className="flex flex-col md:flex-row justify-between items-start w-full gap-8 md:gap-2">
-          <nav className="flex gap-8 md:gap-16">
+          <motion.nav 
+            className="flex gap-8 md:gap-16"
+            variants={fadeInDown}  
+          >
             <div className="flex flex-col gap-2 md:gap-4">
               <p className="font-bold text-md md:text-xl">Categorias</p>
               <Link href="/category/restaurants" passHref>
@@ -42,9 +52,12 @@ export function Footer() {
                 <a className='text-gray-300 hover:text-yellow-400 transition-colors text-sm md:text-md'>Termos de uso</a>
               </Link>
             </div>
-          </nav>
+          </motion.nav>
 
-          <div className="flex flex-col items-start md:items-end gap-3">
+          <motion.div 
+            className="flex flex-col items-start md:items-end gap-3"
+            variants={fadeInUp}  
+          >
             <a 
               href='https://play.google.com/store/apps/details?id=com.lailsonlm.decideaimobile&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'
               target="_blank" rel="noreferrer"
@@ -68,10 +81,13 @@ export function Footer() {
               <a target="_blank" className="text-xs text-gray-50 hover:text-yellow-400 transition-colors ml-1 font-semibold">Lailson Sobral</a>
               </Link>
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
-      <div className='w-full flex justify-between max-w-[1120px] px-6 xl:px-0 mb-10'>
+      <motion.div 
+        className='w-full flex justify-between max-w-[1120px] px-6 xl:px-0 mb-10'
+        variants={fadeIn}
+      >
         <Link href="https://www.instagram.com/decideai_oficial/" passHref>
           <a target="_blank" className="p-2 bg-yellow-400 flex items-center justify-center text-blue-800 rounded-lg hover:brightness-110 transition-all" title='Instagram'>
             <InstagramLogo size={24} weight="bold" />
@@ -84,7 +100,7 @@ export function Footer() {
         >
           <ArrowUp size={24} weight="bold" />
         </button>
-      </div>
-    </footer>
+      </motion.div>
+    </motion.footer>
   )
 }
