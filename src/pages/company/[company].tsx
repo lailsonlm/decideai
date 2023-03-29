@@ -167,6 +167,18 @@ export default function Company({ company }: CompanyProps) {
           <div className="w-full h-[1px] border-b border-gray-300 my-5 md:my-10" />
           <CompanyRating companyId={company.id} />
         </motion.div>
+          <a 
+            href="https://www.gfilas.com.br"
+            target="_blank"
+            className="flex my-10" rel="noreferrer"
+          >
+            <motion.img 
+              src="/banner_gfilas.jpg" alt="GFilas - Gestão de Fila de Espera" className='w-full' 
+              variants={fadeIn}
+              initial='initial'
+              animate='animate'
+            />
+          </a>
       </motion.main>
       <Footer />
     </div>

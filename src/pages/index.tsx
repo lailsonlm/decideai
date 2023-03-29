@@ -115,6 +115,18 @@ export default function Home({ mainCategories, totalCompanies }: HomeProps) {
       </div>
 
       <main className="flex flex-col justify-start max-w-[1120px] w-full mx-auto h-full mt-10 sm:mt-20 overflow-hidden">
+        <a 
+          href="https://www.gfilas.com.br"
+          target="_blank"
+          className="flex px-4 xl:px-0 mb-10" rel="noreferrer"
+        >
+          <motion.img 
+            src="/banner_gfilas.jpg" alt="GFilas - Gestão de Fila de Espera" className='w-full' 
+            variants={fadeIn}
+            initial='initial'
+            animate='animate'
+          />
+        </a>
         <motion.h2 
           className="font-heading text-xl px-4 xl:px-0"
           variants={fadeInUp}

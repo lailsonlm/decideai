@@ -32,7 +32,7 @@ export function MenuHeader({ onSetIsOpenMenu }: MenuHeaderProps) {
   const { user, handleGoogleSignOut } = useContext(AuthContext)
   return (
     <nav className="flex flex-col md:flex-row md:items-start gap-8 md:gap-6 font-bold text-xl text-gray-50">
-      <Link href="/">
+      <Link href="/" passHref>
         <a className='hover:text-yellow-400 transition-colors'>Home</a>
       </Link>
 

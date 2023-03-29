@@ -149,7 +149,20 @@ export default function Category() {
         </motion.div>
       </div>
 
+
       <main className="flex flex-col justify-start max-w-[1120px] w-full mx-auto h-full mt-6 overflow-hidden">     
+        <a 
+          href="https://www.gfilas.com.br"
+          target="_blank"
+          className="flex px-4 xl:px-0 mb-10" rel="noreferrer"
+        >
+          <motion.img 
+            src="/banner_gfilas.jpg" alt="GFilas - Gestão de Fila de Espera" className='w-full' 
+            variants={fadeIn}
+            initial='initial'
+            animate='animate'
+          />
+        </a>
         <motion.p 
           className="text-sm text-right pr-4 xl:pr-2"
           initial="initial"

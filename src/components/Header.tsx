@@ -18,7 +18,7 @@ export function Header() {
       initial='initial'
       animate='animate'
     >
-      <Link href="/">
+      <Link href="/" passHref>
         <motion.a
           variants={headerFadeInDown}
         >
